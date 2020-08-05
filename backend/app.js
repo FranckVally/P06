@@ -6,6 +6,7 @@ const app = express();
 
 //Importations des routes
 const saucesRoutes = require('./routes/sauces');
+const userRoutes = require('./routes/user');
 
 
 mongoose.connect('mongodb+srv://VALLY:8wDrt6Ue6rpv4r7@cluster0.xqms6.mongodb.net/<dbname>?retryWrites=true&w=majority',
@@ -17,5 +18,7 @@ mongoose.connect('mongodb+srv://VALLY:8wDrt6Ue6rpv4r7@cluster0.xqms6.mongodb.net
 
 
 app.use('/api/sauces', saucesRoutes);  
+app.use('/api/auth', userRoutes);
+
   
 module.exports = app;
