@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const sauceCtrl = require('../controllers/sauces');
-const sauceLike = require('../controllers/likeDislike');
+
 
 
 // Import middleware auth securisation des routes
@@ -16,7 +16,7 @@ router.get('/', sauceCtrl.getListeSauce); //sans auth pour pouvoire voire les sa
 router.delete('/:id', auth, sauceCtrl.supprimerSauce);
 router.put ('/:id', auth, multer, sauceCtrl.modifSauce);
 router.get('/:id', auth, sauceCtrl.getOneSauce);
-router.post('/:id/like', auth, sauceLike.likeSauce);
+router.post('/:id/like', auth, sauceCtrl.likeSauce);
 router.post ('/', auth, multer, sauceCtrl.createSauce);
 
 
