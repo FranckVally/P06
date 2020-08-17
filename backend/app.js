@@ -24,7 +24,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// Pour gérer les demandes POST
+// Pour traiter les demandes POST en paquetage JSOM
 app.use(bodyParser.json());
 
 // Pour enregistre les images dans en statique ans le dossier images
