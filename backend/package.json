@@ -16,6 +16,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.1",
     "express-bouncer": "^0.2.0",
+    "jimp": "^0.16.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.27",
     "mongoose-unique-validator": "^2.0.3",

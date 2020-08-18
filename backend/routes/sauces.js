@@ -9,6 +9,11 @@ const auth = require('../middleware/auth');
 
 //Import du middleware multer pour gérer les images : format extention 
 const multer = require ('../middleware/multer-config');
+ 
+
+
+ 
+ 
 
 //route des sauces
 router.get('/', sauceCtrl.getListeSauce); //sans auth pour pouvoire voire les sauce sans etre inscrit.
