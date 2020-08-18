@@ -1,13 +1,14 @@
 // Ajout des packages suplémentaires pour la BDD
 const mongoose = require('mongoose');
 
+
 // pour ne pas avoir deux fois le même nom de sauce 
 const  uniqueValidator  =  require ( 'mongoose-unique-validator' );
 
 //pour securiser contre l’injection SQL
 const validate = require('mongoose-validator')
 
-var nameValidator = [
+var antiSQL = [
   validate({
     validator: 'isLength',
     arguments: [3, 150],
@@ -20,13 +21,14 @@ var nameValidator = [
   }),
 ]
 
+
 // Modèle des sauces
 const sauceSchema = mongoose.Schema({
   userId: {type: String, required: true},
-  name: {type: String, required: true, unique: true, validate : nameValidator},
-  manufacturer: {type: String, required: true, validate : nameValidator},
-  description: {type: String, required: true, validate : nameValidator},
-  mainPepper: {type: String, required: true, validate : nameValidator},
+  name: {type: String, required: true, unique: true, validate : antiSQL},
+  manufacturer: {type: String, required: true, validate : antiSQL},
+  description: {type: String, required: true, validate :antiSQL},
+  mainPepper: {type: String, required: true, validate : antiSQL},
   imageUrl: {type: String, required: true},
   heat: {type: Number, required: true},
   likes: {type: Number, required: false, default:0},

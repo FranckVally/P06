@@ -3,17 +3,25 @@ danns le frotend
 installer : npm install --save-dev node-sass
 
 
+## Piquante
 
+Le projet a été généré avec [Angular CLI](https://github.com/angular/angular-cli) version 7.0.2.
+
+Pour faire fonctionner le projet, vous devez installer node-sass à part.
+
+## Development server
+
+Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous sur `http://localhost:4200/`. L'application va se recharger automatiquement si vous modifiez un fichier source.
 
 
 Pour faire fonctionner le backend :
 
 npm init
-npm install -g nodemongit push
-npm install password-validator
-npm install email-validator
-npm install --save mongoose-unique-validator    // pour avoir des noms unique
-npm i mongoose-validator -S                     // pour luter conttre les injection SQL    
+npm install -g nodemongit
+npm install password-validator                   // pour avoir un mot de passe fort.   
+npm install email-validator                      // pour valider les mail
+npm install --save mongoose-unique-validator     // pour avoir des noms unique
+npm i mongoose-validator -S                      // pour luter conttre les injections SQL    
 node server
 
 Pour Crée l'utilisateur :
