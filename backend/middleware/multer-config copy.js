@@ -49,44 +49,37 @@ promise.then(function(){
 });
 */
 
-
-
 const storage = multer.diskStorage({
-  
-  
-
+ 
   destination: (req, file, callback) => {
     callback(null, 'images');
   },
   
   filename: (req, file, callback) => {
-    const name = file.fieldname.split(' ').join('_');   //fieldname pour avoir juste le nom sans l'extention
+    const name = file.originalname.split(' ').join('_');
     const extension = MIME_TYPES[file.mimetype];
 
     
       
-  callback(null, 'sauces_piquantes_' + name +  Date.now() + '.' + extension);
-  
-
-/*
-console.log (nomimage)
-   
-jimp.read(images/nomimage)
+    callback(null, 'sauces_piquantes_' + name +  Date.now() + '.' + extension);
+    let nomImage = 'sauces_piquantes_' + name +  Date.now() + '.' + extension
+    
+jimp.read(nomImage)
   .then(lenna => {
     return lenna
       .resize(256, 256) // resize
       .quality(60) // set JPEG quality
       .greyscale() // set greyscale
-      .write(images/sauces_piquantes_DSC_4373.JPG1597916491618.jpg); // save
+      .write(nomImage); // save
   })
   .catch(err => {
     console.error(err);
   });
-*/
+
+
   }
   
 });
-
 
 
 module.exports = multer({storage: storage}).single('image');
