@@ -1,8 +1,7 @@
+
 const  multer  =   require('multer');
 
 const fs = require('fs');
-
-
 
 
 const storage =   multer.diskStorage({
@@ -20,15 +19,26 @@ const storage =   multer.diskStorage({
   }
 });
 
-const upload = multer({
-    storage: storage,
-    fileFilter: function (req, file, callback) {
-        var ext = path.extname(file.originalname);
-        if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
-            return callback(new Error('Only images are allowed'))
+
+
+
+    var upload = multer({ 
+        storage : storage,
+        fileFilter: function (req, file, callback) {
+            var ext = path.extname(file.originalname);
+            if(ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+                return callback(new Error('Only images are allowed'))
+            }
+            callback(null, true)
         }
-        callback(null, true)
-    }
-}).single('userFile');
+    }).single('userFile');
+    upload(req,res,function(err) {
+        if(err) {
+            return res.end("Error uploading file.");
+        }
+        res.end("File is uploaded");
+    });
+
+
 
 module.exports = multer({storage: storage}).single('image');
