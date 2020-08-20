@@ -13,41 +13,31 @@ const MIME_TYPES = {
 };
 
 
+
 const storage = multer.diskStorage({
-  destination: (req, file, callback) => {
-    callback(null, 'images');
+  destination: (req, file, cb) => {
+    cb(null, 'images');
   },
 
-  filename: (req, file, callback) => {
+  filename: (req, file, cb) => {
     const name = file.fieldname.split(' ').join('_');   //fieldname pour avoir juste le nom sans l'extention
     const extension = MIME_TYPES[file.mimetype];
 
+    cb(null, 'sauces_piquantes_' + name + Date.now() + '.' + extension);
  
-
-    callback(null, 'sauces_piquantes_' + name + Date.now() + '.' + extension);
- 
-   
-    var upload = multer({ 
-      storage : storage,
-      fileFilter: function (req, file, callback) {
-          var extension  = extension;
-          if(extension !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
-              return callback(new Error('Only images are allowed'))
-          }
-          callback(null, true)
-      }
-  }).single('userFile');
-  
-  upload(req,res,function(err) {
-      if(err) {
-          return res.end("Error uploading file.");
-      }
-      res.end("File is uploaded");
-  });
-
-  
   }
 
+});
+const upload = multer({
+  storage: storage,
+  fileFilter: (req, file, cb) => {
+    if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg") {
+      cb(null, true);
+    } else {
+      cb(null, false);
+      return cb(new Error('Only .png, .jpg and .jpeg format allowed!'));
+    }
+  }
 });
 
 
