@@ -2,7 +2,7 @@
 
 const multer = require('multer');
 
-const jimp = require('jimp');
+
 
 // dictonnaire pour doner les extention des formats d'images en fonction de leurs mimetypes
 const MIME_TYPES = {
@@ -25,7 +25,7 @@ const storage = multer.diskStorage({
     const extension = MIME_TYPES[file.mimetype];
 
     cb(null, 'sauces_piquantes_' + name + Date.now() + '.' + extension);
- 
+  
   }
 
 });
@@ -39,7 +39,10 @@ var upload = multer({
       return cb(new Error('Only .png, .gif  .jpg and .jpeg  format allowed!'));
     }
   }
+  
 });
+
+
 
 
 

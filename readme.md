@@ -1,4 +1,4 @@
-danns le frotend
+dans le frontend
 
 installer : npm install --save-dev node-sass
 
@@ -22,7 +22,9 @@ npm install password-validator                   // pour avoir un mot de passe f
 npm install email-validator                      // pour valider les mail
 npm install --save mongoose-unique-validator     // pour avoir des noms unique
 npm i mongoose-validator -S                      // pour luter conttre les injections SQL    
-node server
+npm install -g nodemon
+
+nodemon server
 
 Pour Crée l'utilisateur :
     utiliser une adress mail conforme :
