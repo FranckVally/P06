@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 
 // pour ne pas avoir deux fois le même nom de sauce 
-const  uniqueValidator  =  require ( 'mongoose-unique-validator' );
+const uniqueValidator = require('mongoose-unique-validator');
 
 //pour securiser contre l’injection SQL
 const validate = require('mongoose-validator')
@@ -24,17 +24,17 @@ var antiSQL = [
 
 // Modèle des sauces
 const sauceSchema = mongoose.Schema({
-  userId: {type: String, required: true},
-  name: {type: String, required: true, unique: true, validate : antiSQL},
-  manufacturer: {type: String, required: true, validate : antiSQL},
-  description: {type: String, required: true, validate :antiSQL},
-  mainPepper: {type: String, required: true, validate : antiSQL},
-  imageUrl: {type: String, required: true},
-  heat: {type: Number, required: true},
-  likes: {type: Number, required: false, default:0},
-  dislikes: {type: Number, required: false, default:0},
-  usersLiked: {type: [String], required: false},
-  usersDisliked: {type: [String], required: false},
+  userId: { type: String, required: true },
+  name: { type: String, required: true, unique: true, validate: antiSQL },
+  manufacturer: { type: String, required: true, validate: antiSQL },
+  description: { type: String, required: true, validate: antiSQL },
+  mainPepper: { type: String, required: true, validate: antiSQL },
+  imageUrl: { type: String, required: true },
+  heat: { type: Number, required: true },
+  likes: { type: Number, required: false, default: 0 },
+  dislikes: { type: Number, required: false, default: 0 },
+  usersLiked: { type: [String], required: false },
+  usersDisliked: { type: [String], required: false },
 });
 
 sauceSchema.plugin(uniqueValidator);

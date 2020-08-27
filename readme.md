@@ -24,7 +24,8 @@ npm install --save mongoose-unique-validator     // pour avoir des noms unique
 npm i mongoose-validator -S                      // pour luter conttre les injections SQL    
 npm install -g nodemon
 
-nodemon server
+`nodemon server`
+
 
 Pour Crée l'utilisateur :
     utiliser une adress mail conforme :

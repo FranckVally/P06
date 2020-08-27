@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 //paquetage pour avoire de email conforme
-const emailValidator = require('email-validator'); 
+const emailValidator = require('email-validator');
 
 
 // paquetage pour obliger l'utilisateur a chosir un mot de passe fort
@@ -26,9 +26,9 @@ const User = require('../models/user');
 
 //création utilisateur
 exports.signup = (req, res, next) => {
-    if (!schemaPasseWord.validate(req.body.password) ||(!emailValidator.validate(req.body.email))) {
+    if (!schemaPasseWord.validate(req.body.password) || (!emailValidator.validate(req.body.email))) {
         throw { error: "Merci d'entrer une adresse mail et un mot de passe valide !" }
-    } else if (schemaPasseWord.validate(req.body.password) && ( emailValidator.validate(req.body.email))) {
+    } else if (schemaPasseWord.validate(req.body.password) && (emailValidator.validate(req.body.email))) {
         bcrypt.hash(req.body.password, 7)
             .then(hash => {
                 const user = new User({
