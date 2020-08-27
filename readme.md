@@ -17,7 +17,11 @@ Démarrer `ng serve` pour avoir accès au serveur de développement. Rendez-vous
 Pour faire fonctionner le backend :
 
 npm init
+npm install body-parser
+npm install --save multer
 npm install -g nodemongit
+npm install bcrypt
+npm install express-bouncer
 npm install password-validator                   // pour avoir un mot de passe fort.   
 npm install email-validator                      // pour valider les mail
 npm install --save mongoose-unique-validator     // pour avoir des noms unique
