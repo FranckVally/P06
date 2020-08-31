@@ -73,7 +73,7 @@ exports.likeSauce = (req, res, next) => {
               $pull: { usersLiked: req.body.userId },
               _id: req.params.id
             })
-              .then(() => { res.status(201).json({ message: 'Avis pris en compte !' }); })
+              .then(() => { res.status(200).json({ message: 'Avis pris en compte !' }); })
               .catch((error) => { res.status(400).json({ error: error }); });
 
             // Verification que l'utilisateur n'a pas déjà DISLIKER.
@@ -83,7 +83,7 @@ exports.likeSauce = (req, res, next) => {
               $pull: { usersDisliked: req.body.userId },
               _id: req.params.id
             })
-              .then(() => { res.status(201).json({ message: 'Avis pris en compte !' }); })
+              .then(() => { res.status(200).json({ message: 'Avis pris en compte !' }); })
               .catch((error) => { res.status(400).json({ error: error }); });
           }
         })
@@ -96,7 +96,7 @@ exports.likeSauce = (req, res, next) => {
         $push: { usersLiked: req.body.userId },
         _id: req.params.id
       })
-        .then(() => { res.status(201).json({ message: 'Like pris en compte !' }); })
+        .then(() => { res.status(200).json({ message: 'Like pris en compte !' }); })
         .catch((error) => { res.status(400).json({ error: error }); });
       break;
     //likes = -1
